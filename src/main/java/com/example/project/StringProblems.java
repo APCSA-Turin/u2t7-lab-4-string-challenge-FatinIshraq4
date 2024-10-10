@@ -10,7 +10,18 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-        return false;
+        int length = x.length();
+        if (length>1) {
+            String str = x.substring(length-2, length);
+            if (str.equals("ly")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+        
     }
 
 
@@ -22,7 +33,21 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         //implement code here
-        return "";
+        int length = s1.length();
+        if (s2.equals("")) {
+            String last2 = s1 + s2;
+            return last2;
+        } else {
+            if ((s1.substring(length-1).equals(s2.substring(0,1)))) {
+                String str = s1.substring(0,length-1);
+                String last = str + s2;
+                return last;
+            } else {
+                String last2 = s1 + s2;
+                return last2;
+            }
+        }
+        
     }
 
     // Given a string, return a version without the first 2 chars. 
@@ -33,9 +58,28 @@ public class StringProblems{
     // deFront("away") → "aay"
     // deFront("aapple") -> "apple"
     // deFront("abeep") -> "abeep"
-    public String deFront(String s1){
+    public String deFront(String s1) {
         //implement code here
-        return "";
+        int length = s1.length();
+        if (s1.substring(0,1).equals("a")) {
+            if (s1.substring(1,2).equals("b")) {
+                return s1;
+            } else {
+                String str1 = "a";
+                String str2 = s1.substring(2,length);
+                str1 = str1 + str2;
+                return str1;
+            }
+        } else {
+            if (s1.substring(1,2).equals("b")) {
+                String str = s1.substring(1,length);
+            } else {
+                s1 = s1.substring(2,length);
+                return s1;
+            }
+        }
+        return s1;
+        
     }
 
     
@@ -46,7 +90,20 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        return "";
+        int length = s1.length();
+        if (s1.substring(length-1,length).equals("x") && s1.substring(0,1).equals("x")) {
+            s1 = s1.substring(1,length-1);
+            return s1;
+        }
+        if (s1.substring(length-1,length).equals("x")) {
+            s1 = s1.substring(0,length-1);
+            return s1;
+        } 
+        if (s1.substring(0,1).equals("x")) {
+            s1 = s1.substring(1,length);
+            return s1;
+        } 
+        return s1;
     }
 
     // Given a string str, if the string starts with "f" return "Fizz".
