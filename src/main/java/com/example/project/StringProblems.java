@@ -114,7 +114,21 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
-        return "";
+        int length = s1.length();
+        if (s1.substring(0,1).equals("f") && s1.substring(length-1,length).equals("b")) {
+            s1 = "FizzBuzz";
+            return s1;
+        }
+        if (s1.substring(0,1).equals("f")) {
+            s1 = "Fizz";
+            return s1;
+        } 
+        if (s1.substring(length-1,length).equals("b")) {
+            s1 = "Buzz";
+            return s1;
+        } 
+        return s1;
+        
     }
 
     // Given an int n, return the string form of the number followed 
@@ -127,6 +141,15 @@ public class StringProblems{
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
     public String fizzString2(int x){
-        return "";
+        if (((x % 5) == 0) && ((x % 3) == 0)) {
+            return "FizzBuzz!";
+        }
+        if ((x % 5) == 0) {
+            return "Buzz!";        
+        }
+        if ((x % 3) == 0) {
+            return "Fizz!";        
+        }
+        return (x + "!");
     }
 }
